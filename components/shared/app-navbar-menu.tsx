@@ -49,15 +49,9 @@ export default function AppNavbarMenu() {
       <NavigationMenuList>
         {menu.map((item) => (
           <NavigationMenuItem key={item.href}>
-            {item.isDropdown ? (
-              <>
-                <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
-              </>
-            ) : (
-              <NavigationMenuLink asChild>
-                <Link href={item.href}>{item.label}</Link>
-              </NavigationMenuLink>
-            )}
+            <NavigationMenuLink asChild>
+              <Link href={item.href}>{item.label}</Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>

@@ -13,7 +13,7 @@ import {
 
 export default function HeroCard() {
   return (
-    <section className="col-span-8 h-[400px]! bg-linear-to-tr from-card to-muted-foreground p-4 rounded-md flex flex-col justify-between gap-4">
+    <section className="col-span-8 h-[400px]! bg-linear-to-tr from-card to-muted-foreground/70 p-4 rounded-md flex flex-col justify-between gap-4">
       <div className="flex flex-col items-start">
         <Badge variant="secondary">
           <Clock />
