@@ -1,11 +1,12 @@
+import FilterButton from "@/components/pages/shop/filter-button";
+import SortButton from "@/components/pages/shop/sort-button";
 import BookCard from "@/components/shared/book-card";
-import { Button } from "@/components/ui/button";
 import Pagination from "@/components/ui/pagination";
 
 export default function ShopPage() {
   return (
     <div className="flex flex-col gap-4 py-4">
-      <section className="flex items-center justify-between">
+      <section className="flex items-center justify-between bg-card py-2 px-4 rounded-md">
         <div className="flex items-center gap-2">
           <h1 className="text-base font-semibold tracking-tighter">
             All Products
@@ -15,8 +16,8 @@ export default function ShopPage() {
           </p>
         </div>
         <div className="flex items-center">
-          <Button variant="ghost">Sort by</Button>
-          <Button variant="ghost">Filters</Button>
+          <SortButton />
+          <FilterButton />
         </div>
       </section>
 
