@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function AppNavbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-background border-b">
+    <nav className="fixed top-0 left-0 w-full bg-background border-b z-50">
       <div className="container mx-auto h-14 px-4 xl:px-0 grid grid-cols-2">
         <section className="flex items-center">
           <Link href="/" className="font-bold text-2xl tracking-tighter">

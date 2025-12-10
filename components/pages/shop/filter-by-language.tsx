@@ -1,29 +1,23 @@
 import { Label } from "@/components/ui/label";
-import { DollarSign } from "lucide-react";
+import { Globe } from "lucide-react";
 
-const priceRanges = [
-  "0.99 - 15.00",
-  "7.99 - 12.99",
-  "14.99 - 25.00",
-  "25.00 - 35.00",
-  "50.00 - 300.00+",
-];
+const languages = ["English", "Japanese", "Chinese"];
 
-export default function FilterByPrice() {
+export default function FilterByLanguage() {
   return (
     <section className="space-y-2">
       <header className="text-base font-semibold flex items-center gap-2">
-        <DollarSign className="size-4" />
-        <span>Price</span>
+        <Globe className="size-4" />
+        <span>Language</span>
       </header>
       <ul className="flex flex-wrap gap-2">
-        {priceRanges.map((price) => (
+        {languages.map((language) => (
           <Label
-            key={price}
+            key={language}
             className="grid place-items-center text-center rounded-md border-2 border-transparent hover:border-foreground hover:bg-muted transition-colors duration-300 cursor-pointer text-muted-foreground has-checked:border-foreground has-checked:bg-muted has-checked:text-foreground"
           >
-            <input type="radio" name="price" className="sr-only" />
-            <span className="px-4 py-2">{price}</span>
+            <input type="radio" name="language" className="sr-only" />
+            <span className="px-4 py-2">{language}</span>
           </Label>
         ))}
       </ul>

@@ -21,7 +21,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-4 gap-4">
+      <section className="grid grid-cols-[repeat(auto-fill,minmax(308px,1fr))] gap-4">
         {[...Array(12)].map((_, id) => (
           <div key={id} className="*:h-110">
             <BookCard />

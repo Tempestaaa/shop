@@ -1,12 +1,13 @@
+"use client";
+
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const menu = [
   { label: "Home", href: "/" },
@@ -16,12 +17,18 @@ const menu = [
 ];
 
 export default function AppNavbarMenu() {
+  const pathname = usePathname();
+  const isActive = (href: string) => href === pathname;
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
         {menu.map((item) => (
           <NavigationMenuItem key={item.href}>
-            <NavigationMenuLink asChild>
+            <NavigationMenuLink
+              className={`${isActive(item.href) && "bg-muted"}`}
+              asChild
+            >
               <Link href={item.href}>{item.label}</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
