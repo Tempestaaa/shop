@@ -1,32 +1,59 @@
-import { Label } from "@/components/ui/label";
-import { DollarSign } from "lucide-react";
+"use client";
 
-const priceRanges = [
-  "0.99 - 15.00",
-  "7.99 - 12.99",
-  "14.99 - 25.00",
-  "25.00 - 35.00",
-  "50.00 - 300.00+",
-];
+import FilterWrapper from "@/components/pages/shop/filter-wrapper";
+import { Input } from "@/components/ui/input";
+import { Slider } from "@/components/ui/slider";
+import { formatPrice } from "@/lib/utils";
+import { DollarSign } from "lucide-react";
+import { useState } from "react";
+
+const MIN = 0;
+const MAX = 300;
+
+const clamp = (n: number, a = MIN, b = MAX) => Math.min(Math.max(a, n), b);
 
 export default function FilterByPrice() {
+  const [prices, setPrices] = useState([0, 300]);
+
+  const onChange =
+    (index: 0 | 1) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const raw = e.target.value;
+      const parsed = Number(raw);
+      if (Number.isNaN(parsed)) return;
+
+      let newPrices = [...prices];
+      newPrices[index] = clamp(Math.round(parsed));
+
+      if (newPrices[0] > newPrices[1]) {
+        return index === 0
+          ? (newPrices[1] = newPrices[0])
+          : (newPrices[0] = newPrices[1]);
+      }
+
+      setPrices(newPrices);
+    };
+
   return (
-    <section className="space-y-2">
-      <header className="text-base font-semibold flex items-center gap-2">
-        <DollarSign className="size-4" />
-        <span>Price</span>
-      </header>
-      <ul className="flex flex-wrap gap-2">
-        {priceRanges.map((price) => (
-          <Label
-            key={price}
-            className="grid place-items-center text-center rounded-md border-2 border-transparent hover:border-foreground hover:bg-muted transition-colors duration-300 cursor-pointer text-muted-foreground has-checked:border-foreground has-checked:bg-muted has-checked:text-foreground"
-          >
-            <input type="radio" name="price" className="sr-only" />
-            <span className="px-4 py-2">{price}</span>
-          </Label>
-        ))}
-      </ul>
-    </section>
+    <FilterWrapper icon={DollarSign} label="Price range">
+      <div className="mt-1">
+        <Slider
+          defaultValue={prices}
+          value={prices}
+          min={MIN}
+          max={MAX}
+          step={10}
+          onValueChange={(vals) => {
+            if (!Array.isArray(vals)) return;
+            const [a = MIN, b = MAX] = vals.map((v) => clamp(Math.round(v)));
+            const low = Math.min(a, b);
+            const high = Math.max(a, b);
+            setPrices([low, high]);
+          }}
+        />
+        <p className="text-muted-foreground text-xs mt-3">
+          Set your budget range (${prices[0]} - ${prices[1]})
+        </p>
+      </div>
+    </FilterWrapper>
   );
 }

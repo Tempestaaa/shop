@@ -1,5 +1,23 @@
-import { Label } from "@/components/ui/label";
-import { Printer } from "lucide-react";
+"use client";
+
+import FilterWrapper from "@/components/pages/shop/filter-wrapper";
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { Check, ChevronsUpDown, Printer } from "lucide-react";
+import { useState } from "react";
 
 const bookPublishers = [
   "Penguin Random House",
@@ -18,23 +36,51 @@ const bookPublishers = [
 ];
 
 export default function FilterByPublisher() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = useState("");
+
   return (
-    <section className="space-y-2">
-      <header className="text-base font-semibold flex items-center gap-2">
-        <Printer className="size-4" />
-        <span>Publisher</span>
-      </header>
-      <ul className="flex flex-wrap gap-2">
-        {bookPublishers.map((publisher) => (
-          <Label
-            key={publisher}
-            className="grid place-items-center text-center rounded-md border-2 border-transparent hover:border-foreground hover:bg-muted transition-colors duration-300 cursor-pointer text-muted-foreground has-checked:border-foreground has-checked:bg-muted has-checked:text-foreground"
-          >
-            <input type="radio" name="publisher" className="sr-only" />
-            <span className="px-4 py-2">{publisher}</span>
-          </Label>
-        ))}
-      </ul>
-    </section>
+    <FilterWrapper icon={Printer} label="Publisher">
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
+          <Button variant="outline" className="w-full justify-between">
+            {value
+              ? bookPublishers.find((publisher) => publisher === value)
+              : "Select publisher..."}
+
+            <ChevronsUpDown className="opacity-50" />
+          </Button>
+        </PopoverTrigger>
+
+        <PopoverContent className="p-0">
+          <Command>
+            <CommandInput placeholder="Search publisher..." className="h-9" />
+            <CommandList>
+              <CommandEmpty>No publishers found.</CommandEmpty>
+              <CommandGroup>
+                {bookPublishers.map((genre) => (
+                  <CommandItem
+                    key={genre}
+                    value={genre}
+                    onSelect={(currentValue) => {
+                      setValue(currentValue === value ? "" : currentValue);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {genre}
+                    <Check
+                      className={cn(
+                        "ml-auto",
+                        value === genre ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+    </FilterWrapper>
   );
 }

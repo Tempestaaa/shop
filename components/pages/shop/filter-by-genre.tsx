@@ -1,6 +1,24 @@
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { Tag } from "lucide-react";
+"use client";
+
+import FilterWrapper from "@/components/pages/shop/filter-wrapper";
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { Check, ChevronsUpDown, Tag } from "lucide-react";
+import { useState } from "react";
 
 const bookGenres = [
   "Fiction",
@@ -32,23 +50,51 @@ const bookGenres = [
 ];
 
 export default function FilterByGenre() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = useState("");
+
   return (
-    <section className="space-y-2">
-      <header className="text-base font-semibold flex items-center gap-2">
-        <Tag className="size-4" />
-        <span>Genres</span>
-      </header>
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(7rem,1fr))] gap-2">
-        {bookGenres.map((genre) => (
-          <Label
-            key={genre}
-            className="grid place-items-center text-center rounded-md border-2 border-transparent hover:border-foreground hover:bg-muted transition-colors duration-300 cursor-pointer text-muted-foreground has-aria-checked:border-foreground has-aria-checked:bg-muted has-aria-checked:text-foreground"
-          >
-            <Checkbox className="sr-only" />
-            <span className="p-2">{genre}</span>
-          </Label>
-        ))}
-      </ul>
-    </section>
+    <FilterWrapper icon={Tag} label="Genres">
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
+          <Button variant="outline" className="w-full justify-between">
+            {value
+              ? bookGenres.find((genre) => genre === value)
+              : "Select genre..."}
+
+            <ChevronsUpDown className="opacity-50" />
+          </Button>
+        </PopoverTrigger>
+
+        <PopoverContent className="p-0">
+          <Command>
+            <CommandInput placeholder="Search genre..." className="h-9" />
+            <CommandList>
+              <CommandEmpty>No genres found.</CommandEmpty>
+              <CommandGroup>
+                {bookGenres.map((genre) => (
+                  <CommandItem
+                    key={genre}
+                    value={genre}
+                    onSelect={(currentValue) => {
+                      setValue(currentValue === value ? "" : currentValue);
+                      setIsOpen(false);
+                    }}
+                  >
+                    {genre}
+                    <Check
+                      className={cn(
+                        "ml-auto",
+                        value === genre ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+    </FilterWrapper>
   );
 }
