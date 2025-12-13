@@ -9,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 export default function FilterButton() {
   return (
@@ -22,6 +23,9 @@ export default function FilterButton() {
         <FilterByFormat />
         <FilterByPublisher />
         <FilterByLanguage />
+        <Button variant="ghost" className={cn("text-red-600", "sr-only")}>
+          Clear all
+        </Button>
       </PopoverContent>
     </Popover>
   );
