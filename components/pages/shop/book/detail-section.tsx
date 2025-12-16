@@ -63,7 +63,9 @@ export default function DetailSection() {
           </Rating>
           <span className="text-base font-bold">{4.43}</span>
         </div>
-        <span className="text-muted-foreground">(1531 reviews)</span>
+        <span className="text-muted-foreground">
+          ({(1531).toLocaleString()} reviews)
+        </span>
       </div>
       <div className="flex flex-wrap gap-2 mt-1 mb-2">
         {bookGenres.slice(0, 4).map((genre) => (

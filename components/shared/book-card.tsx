@@ -44,7 +44,7 @@ export default function BookCard() {
             {book.author}
           </p>
           <Link
-            href="#"
+            href="/shop/book/1"
             className="text-base font-bold tracking-tighter leading-tight line-clamp-2 hover:underline underline-offset-2"
           >
             {book.title}
