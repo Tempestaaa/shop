@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import AppNavbar from "@/components/shared/app-navbar";
+import AppFooter from "@/components/shared/app-footer";
 
 const defaultFont = Montserrat({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         >
           <AppNavbar />
           <main className="pt-14 container mx-auto">{children}</main>
+          <AppFooter />
         </ThemeProvider>
       </body>
     </html>

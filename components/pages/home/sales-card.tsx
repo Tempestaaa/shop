@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen } from "lucide-react";
 
 export default function SalesCard() {
   return (
-    <section className="col-span-5 bg-card p-4 rounded-md h-[300px] flex flex-col items-start gap-4">
+    <section className="col-span-5 bg-card p-4 rounded-md min-h-[300px] flex flex-col items-start gap-4">
       <Badge variant="outline">
         <BookOpen />
         Member exclusive

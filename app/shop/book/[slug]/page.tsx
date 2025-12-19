@@ -1,7 +1,9 @@
+import CommentSection from "@/components/pages/shop/book/comment-section";
 import DetailSection from "@/components/pages/shop/book/detail-section";
 import ImageSection from "@/components/pages/shop/book/image-section";
 import MetaSection from "@/components/pages/shop/book/meta-section";
 import RatingSection from "@/components/pages/shop/book/rating-section";
+import RelatedBooks from "@/components/pages/shop/book/related-books";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -42,6 +44,11 @@ export default function BookDetailsPage() {
         <DetailSection />
         <MetaSection />
         <RatingSection />
+      </article>
+
+      <article className="grid grid-cols-12 gap-8">
+        <CommentSection />
+        <RelatedBooks />
       </article>
     </div>
   );
