@@ -20,7 +20,7 @@ const book = {
 
 export default function BookCard() {
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col rounded-md overflow-hidden group">
       <div className="absolute top-2 left-2 z-10 flex flex-col gap-1.5">
         {book.isBestseller && <Badge variant="secondary">Bestseller</Badge>}
 
@@ -31,14 +31,9 @@ export default function BookCard() {
         )}
       </div>
 
-      <Image
-        src={`/${book.cover}`}
-        alt="Book's cover"
-        fill
-        className="rounded-md"
-      />
+      <Image src={`/${book.cover}`} alt="Book's cover" fill />
 
-      <div className="absolute top-0 left-0 size-full bg-linear-to-t from-card to-transparent">
+      <div className="absolute top-0 left-0 size-full bg-linear-to-t from-card to-transparent group-hover:bg-muted/80 transition-colors duration-300">
         <div className="absolute bottom-2 left-2 right-2 flex flex-col gap-1">
           <p className="text-xs text-foreground/80 line-clamp-1">
             {book.author}

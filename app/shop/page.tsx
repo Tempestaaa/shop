@@ -23,7 +23,10 @@ export default function ShopPage() {
 
       <section className="grid grid-cols-[repeat(auto-fill,minmax(308px,1fr))] gap-4">
         {[...Array(12)].map((_, id) => (
-          <div key={id} className="*:h-110">
+          <div
+            key={id}
+            className="*:h-110 *:outline-2 *:outline-transparent *:hover:outline-foreground *:transition-colors *:duration-300"
+          >
             <BookCard />
           </div>
         ))}
