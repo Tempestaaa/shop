@@ -13,7 +13,6 @@ const menu = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/shop", isDropdown: true },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function AppNavbarMenu() {

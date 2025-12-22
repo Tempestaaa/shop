@@ -7,7 +7,6 @@ const menu = [
   { label: "Home", href: "/" },
   { label: "Shop", href: "/shop", isDropdown: true },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const legal = ["Privacy Policy", "Terms of Services", "FAQ", "Support"];
@@ -48,6 +47,7 @@ export default function AppFooter() {
               </Button>
             </div>
           </section>
+
           <section className="basis-1/5 space-y-2">
             <header className="text-base font-bold">Navigation</header>
             <menu className="flex flex-col">
