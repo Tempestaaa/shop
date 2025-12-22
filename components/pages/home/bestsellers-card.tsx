@@ -21,7 +21,7 @@ export default function BestsellersCard() {
         <ScrollArea className="h-full">
           <ul className="flex flex-col">
             {[...Array(4)].map((_, id) => (
-              <BookCardRow key={id} />
+              <BookCardRow key={id} showBuyOption />
             ))}
           </ul>
 

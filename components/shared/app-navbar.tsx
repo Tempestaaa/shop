@@ -1,4 +1,5 @@
 import AppNavbarMenu from "@/components/shared/app-navbar-menu";
+import ShoppingCartButton from "@/components/shared/shopping-cart-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverTrigger } from "@/components/ui/popover";
@@ -22,9 +23,7 @@ export default function AppNavbar() {
           <Button variant="ghost">
             <Search />
           </Button>
-          <Button variant="ghost">
-            <ShoppingCart />
-          </Button>
+          <ShoppingCartButton />
           <Button variant="ghost" className="relative">
             <Bell />
             <div className="absolute top-1.5 right-2.5 size-2 bg-red-600 rounded-full" />
