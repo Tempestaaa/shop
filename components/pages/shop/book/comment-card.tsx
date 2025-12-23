@@ -1,13 +1,20 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, ThumbsUp } from "lucide-react";
 
 export default function CommentCard() {
   return (
     <div className="p-2 rounded-md border-2 border-transparent hover:border-foreground transition-colors duration-300 flex gap-4">
-      <Avatar className="size-10">
-        <AvatarImage />
-        <AvatarFallback>VN</AvatarFallback>
-      </Avatar>
+      <div className="flex flex-col gap-1 items-center">
+        <Avatar className="size-10">
+          <AvatarImage />
+          <AvatarFallback>VN</AvatarFallback>
+        </Avatar>
+        <Button variant="ghost" className="flex-col py-8!">
+          <ThumbsUp />
+          <p className="text-xs text-muted-foreground">100</p>
+        </Button>
+      </div>
 
       <div className="flex-1 flex flex-col gap-2">
         <header className="">
