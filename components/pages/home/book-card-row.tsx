@@ -3,6 +3,7 @@ import { InputGroup, InputGroupButton } from "@/components/ui/input-group";
 import { formatPrice } from "@/lib/utils";
 import { Minus, Plus, ShoppingCart, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   showBuyOption?: boolean;
@@ -29,9 +30,12 @@ export default function BookCardRow({
           Yamada Kanehito
         </p>
 
-        <header className="line-clamp-1 font-semibold tracking-tighter">
+        <Link
+          href="/shop/book/1"
+          className="line-clamp-1 font-semibold tracking-tighter hover:underline underline-offset-2"
+        >
           Frieren: Beyond the Journey&apos;s End Vol.1
-        </header>
+        </Link>
 
         {isInShoppingCart ? (
           <div className="mt-auto flex items-center justify-between">

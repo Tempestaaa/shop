@@ -1,3 +1,4 @@
+import SocialIcons from "@/components/shared/social-icons";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
@@ -23,29 +24,13 @@ export default function AppFooter() {
             >
               Next Shop
             </Link>
-            <p className="text-muted-foreground w-1/2">
+            <p className="text-muted-foreground w-1/2 mb-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
               voluptates nam doloribus deserunt omnis enim voluptatibus amet
               fugit iure doloremque sequi, optio, id adipisci! Obcaecati vitae
               odit placeat sequi dignissimos?
             </p>
-            <div className="flex items-center text-muted-foreground mt-2">
-              <Button variant="ghost">
-                <Facebook />
-              </Button>
-              <Button variant="ghost">
-                <Instagram />
-              </Button>
-              <Button variant="ghost">
-                <Youtube />
-              </Button>
-              <Button variant="ghost">
-                <Linkedin />
-              </Button>
-              <Button variant="ghost">
-                <Twitter />
-              </Button>
-            </div>
+            <SocialIcons />
           </section>
 
           <section className="basis-1/5 space-y-2">

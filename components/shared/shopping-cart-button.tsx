@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { formatPrice } from "@/lib/utils";
 import { ArrowRight, ShoppingCart } from "lucide-react";
 
 export default function ShoppingCartButton() {
@@ -44,6 +45,10 @@ export default function ShoppingCartButton() {
         </div>
         <Separator />
         <SheetFooter>
+          <div className="flex flex-col">
+            <p>Total:</p>
+            <p className="text-2xl font-bold">{formatPrice(7.99 * 8)}</p>
+          </div>
           <Button className="group">
             Go to Checkout
             <ArrowRight className="group-hover:translate-x-1.5 transition-all duration-300" />

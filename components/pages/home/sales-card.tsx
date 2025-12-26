@@ -1,3 +1,4 @@
+import LinkButton from "@/components/shared/link-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,13 +22,12 @@ export default function SalesCard() {
           join today.
         </p>
         <div className="flex items-center gap-4 mt-2">
-          <Button className="px-6! group">
+          <LinkButton href="/auth/login" showArrow className="px-6!">
             Start your Journey
-            <ArrowRight className="group-hover:translate-x-1.5 transition-all duration-300" />
-          </Button>
-          <Button variant="secondary" className="px-6!">
+          </LinkButton>
+          <LinkButton variant="secondary" href="/shop" className="px-6!">
             Browse Collection
-          </Button>
+          </LinkButton>
         </div>
         <div className="flex items-center gap-2 mt-auto">
           <div className="-space-x-2 flex items-center">

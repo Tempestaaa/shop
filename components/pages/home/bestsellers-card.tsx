@@ -1,7 +1,7 @@
 import BookCardRow from "@/components/pages/home/book-card-row";
-import { Button } from "@/components/ui/button";
+import LinkButton from "@/components/shared/link-button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { ArrowRight, Flame } from "lucide-react";
+import { Flame } from "lucide-react";
 
 export default function BestsellersCard() {
   return (
@@ -11,10 +11,7 @@ export default function BestsellersCard() {
           <Flame className="size-5 fill-red-600 text-red-600" />
           <h1 className="text-xl font-bold">Best Sellers</h1>
         </div>
-
-        <Button variant="ghost">
-          <ArrowRight />
-        </Button>
+        <LinkButton variant="ghost" href="/shop" showArrow disableTransition />
       </header>
 
       <div className="flex-1 overflow-y-hidden">
@@ -24,7 +21,6 @@ export default function BestsellersCard() {
               <BookCardRow key={id} showBuyOption />
             ))}
           </ul>
-
           <ScrollBar />
         </ScrollArea>
       </div>

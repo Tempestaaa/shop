@@ -1,15 +1,8 @@
+import LinkButton from "@/components/shared/link-button";
+import SocialIcons from "@/components/shared/social-icons";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import dayjs from "dayjs";
-import {
-  ArrowRight,
-  Clock,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Clock } from "lucide-react";
 
 export default function HeroCard() {
   return (
@@ -28,29 +21,11 @@ export default function HeroCard() {
           shipping and personalized recommendations. Everything a reader needs,
           all in one place.
         </p>
-        <Button size="lg" className="mt-6 px-6! rounded-full group">
+        <LinkButton href="/shop" className="mt-6 px-6!" showArrow>
           Explore New Arrivals
-          <ArrowRight className="group-hover:translate-x-1.5 transition-all duration-300" />
-        </Button>
+        </LinkButton>
       </div>
-
-      <div className="flex items-center *:text-muted-foreground *:hover:text-foreground *:transition-colors *:duration-300">
-        <Button variant="ghost">
-          <Youtube />
-        </Button>
-        <Button variant="ghost">
-          <Instagram />
-        </Button>
-        <Button variant="ghost">
-          <Facebook />
-        </Button>
-        <Button variant="ghost">
-          <Linkedin />
-        </Button>
-        <Button variant="ghost">
-          <Twitter />
-        </Button>
-      </div>
+      <SocialIcons />
     </section>
   );
 }
