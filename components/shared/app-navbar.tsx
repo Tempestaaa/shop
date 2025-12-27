@@ -1,11 +1,10 @@
 import AppNavbarMenu from "@/components/shared/app-navbar-menu";
+import NotificationButton from "@/components/shared/notification-button";
 import SearchButton from "@/components/shared/search-button";
 import ShoppingCartButton from "@/components/shared/shopping-cart-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { Popover, PopoverTrigger } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-import { Bell } from "lucide-react";
 import Link from "next/link";
 
 export default function AppNavbar() {
@@ -23,10 +22,7 @@ export default function AppNavbar() {
         <section className="flex items-center justify-end">
           <SearchButton />
           <ShoppingCartButton />
-          <Button variant="ghost" className="relative">
-            <Bell />
-            <div className="absolute top-1.5 right-2.5 size-2 bg-red-600 rounded-full" />
-          </Button>
+          <NotificationButton />
           <Separator orientation="vertical" className="mr-4 ml-2" />
           <Popover>
             <PopoverTrigger className="flex items-center gap-2">
