@@ -2,8 +2,7 @@ import AppNavbarMenu from "@/components/shared/app-navbar-menu";
 import NotificationButton from "@/components/shared/notification-button";
 import SearchButton from "@/components/shared/search-button";
 import ShoppingCartButton from "@/components/shared/shopping-cart-button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Popover, PopoverTrigger } from "@/components/ui/popover";
+import UserButton from "@/components/shared/user-button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
@@ -24,15 +23,7 @@ export default function AppNavbar() {
           <ShoppingCartButton />
           <NotificationButton />
           <Separator orientation="vertical" className="mr-4 ml-2" />
-          <Popover>
-            <PopoverTrigger className="flex items-center gap-2">
-              <p>Username</p>
-              <Avatar>
-                <AvatarImage />
-                <AvatarFallback>VN</AvatarFallback>
-              </Avatar>
-            </PopoverTrigger>
-          </Popover>
+          <UserButton />
         </section>
       </div>
     </nav>
