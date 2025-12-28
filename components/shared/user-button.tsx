@@ -31,7 +31,7 @@ const userMeta = [
   {
     label: "Settings",
     icon: Settings,
-    href: "/Settings",
+    href: "/settings",
     isProtected: false,
   },
 ];

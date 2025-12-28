@@ -36,7 +36,7 @@ export default function SearchButton() {
             </Link>
           </ul>
         ) : (
-          <p>No books found</p>
+          <p className="p-2">No books found</p>
         )}
       </div>
     </div>
