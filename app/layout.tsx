@@ -31,7 +31,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AppNavbar />
-          <main className="pt-14 container mx-auto">{children}</main>
+          <main className="pt-14 flex-1 container mx-auto">{children}</main>
           <AppFooter />
         </ThemeProvider>
       </body>

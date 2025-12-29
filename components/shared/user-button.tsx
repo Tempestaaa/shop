@@ -1,40 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-import { Heart, KeyRound, LogOut, Settings, User } from "lucide-react";
+import { userMeta } from "@/lib/meta";
+import { LogOut } from "lucide-react";
 import Link from "next/link";
-
-const userMeta = [
-  {
-    label: "My profile",
-    icon: User,
-    href: "/user/profile",
-    isProtected: true,
-  },
-  {
-    label: "Change password",
-    icon: KeyRound,
-    href: "/user/password",
-    isProtected: true,
-  },
-  {
-    label: "Wishlist",
-    icon: Heart,
-    href: "/user/wishlist",
-    isProtected: true,
-  },
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
-    isProtected: false,
-  },
-];
 
 export default function UserButton() {
   return (

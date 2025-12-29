@@ -1,7 +1,5 @@
 import SocialIcons from "@/components/shared/social-icons";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
 
 const menu = [
