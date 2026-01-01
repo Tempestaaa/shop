@@ -1,3 +1,4 @@
+import UserWrapper from "@/components/pages/user/user-wrapper";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import PasswordInput from "@/components/ui/password-input";
@@ -5,10 +6,7 @@ import { Save } from "lucide-react";
 
 export default function UserChangePasswordPage() {
   return (
-    <div className="p-4 space-y-4">
-      <header className="text-2xl font-semibold tracking-tighter">
-        Change Password
-      </header>
+    <UserWrapper header="Change Password">
       <form className="space-y-4">
         <div className="flex flex-col gap-6 p-4 rounded-md bg-card">
           <Label className="flex items-center gap-4">
@@ -29,6 +27,6 @@ export default function UserChangePasswordPage() {
           Save
         </Button>
       </form>
-    </div>
+    </UserWrapper>
   );
 }

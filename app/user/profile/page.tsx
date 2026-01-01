@@ -3,15 +3,13 @@ import DobField from "@/components/pages/user/profile/dob-field";
 import EmailField from "@/components/pages/user/profile/email-field";
 import GenderField from "@/components/pages/user/profile/gender-field";
 import PhoneField from "@/components/pages/user/profile/phone-field";
+import UserWrapper from "@/components/pages/user/user-wrapper";
 import { Button } from "@/components/ui/button";
 import { Save, Trash } from "lucide-react";
 
 export default function UserProfilePage() {
   return (
-    <div className="p-4 space-y-4">
-      <header className="text-2xl font-semibold tracking-tighter">
-        Personal Profile
-      </header>
+    <UserWrapper header="Personal Profile">
       <form className="space-y-4">
         <div className="flex flex-col gap-6 p-4 rounded-md bg-card">
           <BasicInfoField />
@@ -31,6 +29,6 @@ export default function UserProfilePage() {
           </Button>
         </div>
       </form>
-    </div>
+    </UserWrapper>
   );
 }

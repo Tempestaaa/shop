@@ -1,9 +1,12 @@
 import FilterButton from "@/components/pages/shop/filter-button";
-import SortButton from "@/components/pages/shop/sort-button";
 import BookCard from "@/components/shared/book-card";
+import SortButton from "@/components/shared/sort-button";
 import Pagination from "@/components/ui/pagination";
+import { bookShopSortOptions } from "@/lib/meta";
 
 export default function ShopPage() {
+  const sortOptions = bookShopSortOptions;
+
   return (
     <div className="flex flex-col gap-4 py-4">
       <section className="flex items-center justify-between bg-card py-2 px-4 rounded-md">
@@ -16,7 +19,7 @@ export default function ShopPage() {
           </p>
         </div>
         <div className="flex items-center">
-          <SortButton />
+          <SortButton sortOptions={sortOptions} />
           <FilterButton />
         </div>
       </section>
