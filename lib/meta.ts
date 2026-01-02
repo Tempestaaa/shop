@@ -1,3 +1,4 @@
+import { iNotification, NotificationType } from "@/types/notification.type";
 import { iSortOption } from "@/types/sort-option.type";
 import {
   ArrowDownCircle,
@@ -105,5 +106,40 @@ export const voucherSortOptions: iSortOption[] = [
     label: "Oldest",
     value: "oldest",
     icon: "ClockArrowUp",
+  },
+];
+
+export const MOCK_NOTIFICATIONS: iNotification[] = [
+  {
+    id: 1,
+    title: "Order Confirmed",
+    description: "Your order #3345 has been confirmed by the system.",
+    type: NotificationType.ORDER,
+    createdAt: "2024-05-23T08:30:00Z",
+  },
+
+  {
+    id: 2,
+    title: "Super Shopping Sale",
+    description: "Up to 70% off the entire store.",
+    type: NotificationType.EVENT,
+    createdAt: "2024-05-22T14:15:00Z",
+  },
+
+  {
+    id: 3,
+
+    title: "50k Voucher Expires Soon",
+    description: "Use the voucher before it expires at the end of the day.",
+    type: NotificationType.VOUCHER,
+    createdAt: "2024-05-22T09:00:00Z",
+  },
+
+  {
+    id: 4,
+    title: "Delivery successful",
+    description: "Your package has been delivered.",
+    type: NotificationType.ORDER,
+    createdAt: "2024-05-21T16:45:00Z",
   },
 ];

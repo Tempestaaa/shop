@@ -1,3 +1,4 @@
+import BookCardRow from "@/components/pages/home/book-card-row";
 import UserWrapper from "@/components/pages/user/user-wrapper";
 import BookCard from "@/components/shared/book-card";
 import {
@@ -18,13 +19,13 @@ export default function UserWishListPage() {
         </InputGroupAddon>
       </InputGroup>
 
-      <ul className="grid grid-cols-3 gap-4 mb-8">
-        {[...Array(9)].map((_, id) => (
+      <ul className="grid grid-cols-2 gap-4 mb-8">
+        {[...Array(10)].map((_, id) => (
           <div
             key={id}
-            className="*:h-110 *:outline-2 *:outline-transparent *:hover:outline-foreground *:transition-colors *:duration-300"
+            className="*:outline-2 *:outline-transparent *:hover:outline-foreground *:transition-colors *:duration-300"
           >
-            <BookCard />
+            <BookCardRow showBuyOption />
           </div>
         ))}
       </ul>

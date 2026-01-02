@@ -1,29 +1,39 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { iNotification } from "@/types/notification.type";
 import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { Clock } from "lucide-react";
-import Image from "next/image";
 
-export default function NotificationCard() {
+dayjs.extend(relativeTime);
+
+type Props = {
+  data: iNotification;
+};
+
+export default function NotificationCard({ data }: Props) {
+  if (!data) return null;
+
   return (
-    <li className="p-2 rounded-md hover:bg-muted transition-colors duration-300 space-y-2">
+    <li className="p-2 rounded-md hover:bg-muted transition-colors duration-300 space-y-2 group">
       <div className="flex items-center justify-between text-xs text-muted-foreground">
         <div className="flex items-center gap-1">
           <Clock className="size-3.5" />
-          <span>{dayjs().format("HH:MM DD/MM/YYYY")}</span>
+          <span>{dayjs(data.createdAt).fromNow()}</span>
         </div>
-        <Badge variant="outline">Unseen</Badge>
+        <Badge variant="default" className="capitalize">
+          {data.type}
+        </Badge>
       </div>
       <div className="flex gap-4">
-        <figure className="relative w-14 h-20 rounded overflow-hidden shrink-0">
-          <Image src="/test.jpg" alt="Book's cover" fill />1
-        </figure>
+        <Avatar className="size-10 outline-2 outline-transparent group-hover:outline-border">
+          <AvatarImage />
+          <AvatarFallback>VN</AvatarFallback>
+        </Avatar>
         <div className="flex flex-col gap-1">
-          <p className="font-semibold">Notification name</p>
+          <p className="font-semibold">{data.title}</p>
           <p className="text-muted-foreground line-clamp-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolor
-            blanditiis quibusdam iure atque eveniet vero. Mollitia, atque
-            nostrum! Illo cupiditate ipsam, doloremque accusantium sunt cumque
-            est numquam esse quibusdam!
+            {data.description}
           </p>
         </div>
       </div>

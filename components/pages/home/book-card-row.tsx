@@ -32,7 +32,7 @@ export default function BookCardRow({
 
         <Link
           href="/shop/book/1"
-          className="line-clamp-1 font-semibold tracking-tighter hover:underline underline-offset-2"
+          className="line-clamp-1 font-semibold tracking-tighter hover:underline underline-offset-2 w-fit"
         >
           Frieren: Beyond the Journey&apos;s End Vol.1
         </Link>
