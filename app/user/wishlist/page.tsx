@@ -1,6 +1,5 @@
 import BookCardRow from "@/components/pages/home/book-card-row";
 import UserWrapper from "@/components/pages/user/user-wrapper";
-import BookCard from "@/components/shared/book-card";
 import {
   InputGroup,
   InputGroupAddon,
@@ -13,7 +12,7 @@ export default function UserWishListPage() {
   return (
     <UserWrapper header="Wishlist">
       <InputGroup className="w-1/2">
-        <InputGroupInput placeholder="Search voucher" />
+        <InputGroupInput placeholder="Search book" />
         <InputGroupAddon>
           <Search />
         </InputGroupAddon>

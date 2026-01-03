@@ -1,10 +1,20 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Star, ThumbsUp } from "lucide-react";
 
-export default function CommentCard() {
+type Props = {
+  disableHover?: boolean;
+};
+
+export default function CommentCard({ disableHover = false }: Props) {
   return (
-    <div className="p-2 rounded-md border-2 border-transparent hover:border-foreground transition-colors duration-300 flex gap-4">
+    <div
+      className={cn(
+        "p-2 rounded-md border-2 border-transparent transition-colors duration-300 flex gap-4",
+        !disableHover && "hover:border-foreground"
+      )}
+    >
       <div className="flex flex-col gap-1 items-center">
         <Avatar className="size-10">
           <AvatarImage />
